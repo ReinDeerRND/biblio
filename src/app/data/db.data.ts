@@ -1,5 +1,5 @@
-import { Book } from './models/book.model';
-import { User } from './models/user.model';
+import { Book } from '../models/book.model';
+import { User } from '../models/user.model';
 
 export const USER_LIST: User[] = [
   {

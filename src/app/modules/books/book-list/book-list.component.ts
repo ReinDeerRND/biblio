@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BOOK_LIST } from 'src/app/db.data';
+import { BOOK_LIST } from 'src/app/data/db.data';
 import { Book } from 'src/app/models/book.model';
 
 @Component({

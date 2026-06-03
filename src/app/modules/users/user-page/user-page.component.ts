@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { USER_LIST } from 'src/app/db.data';
+import { USER_LIST } from 'src/app/data/db.data';
 
 @Component({
   selector: 'app-user-page',

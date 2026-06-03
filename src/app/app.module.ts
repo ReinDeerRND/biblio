@@ -8,6 +8,8 @@ import { BookListComponent } from './modules/books/book-list/book-list.component
 import { MainPageComponent } from './modules/main-page/main-page/main-page.component';
 import { AuthUserComponent } from './modules/main-page/auth-user/auth-user.component';
 import { AuthAdminComponent } from './modules/main-page/auth-admin/auth-admin.component';
+import { RegUserComponent } from './modules/main-page/reg-user/reg-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { AuthAdminComponent } from './modules/main-page/auth-admin/auth-admin.co
     BookListComponent,
     MainPageComponent,
     AuthUserComponent,
-    AuthAdminComponent
+    AuthAdminComponent,
+    RegUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
