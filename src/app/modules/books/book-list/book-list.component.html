@@ -1,1 +1,18 @@
-<p>book-list works!</p>
+<div class="books-container">
+    <h2>Библиотечный каталог</h2>
+
+    <div class="book-grid">
+        <div class="book-card" *ngFor="let book of books" [class.taken]="book.taken">
+            <h3>{{ book.title }}</h3>
+            <p class="author">{{ book.author }}</p>
+            <p class="year" *ngIf="book.pub_year">Год: {{ book.pub_year }}</p>
+            <p class="status">
+                Статус:
+                <span [class.available]="!book.taken" [class.borrowed]="book.taken">
+                    {{ book.taken ? 'Выдана' : 'Доступна' }}
+                </span>
+            </p>
+            <p class="comment" *ngIf="book.comment">{{ book.comment }}</p>
+        </div>
+    </div>
+</div>
