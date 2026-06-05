@@ -1,8 +1,8 @@
 <div class="books-container">
-    <h2>Библиотечный каталог</h2>
+    <h2>{{title}}</h2>
 
     <div class="book-grid">
-        <div class="book-card" *ngFor="let book of books" [class.taken]="book.taken">
+        <div class="book-card" *ngFor="let book of catalog" [class.taken]="book.taken">
             <h3>{{ book.title }}</h3>
             <p class="author">{{ book.author }}</p>
             <p class="year" *ngIf="book.pub_year">Год: {{ book.pub_year }}</p>

@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './modules/main-page/main-page/main-page.component';
 import { RegUserComponent } from './modules/main-page/reg-user/reg-user.component';
 import { AuthUserComponent } from './modules/main-page/auth-user/auth-user.component';
-import { AdminPageComponent } from './modules/admin-block/admin-page/admin-page.component';
 
 const routes: Routes = [
   { 
@@ -23,17 +22,13 @@ const routes: Routes = [
     path: 'login', 
     component: AuthUserComponent 
   },
-       { 
+  { 
     path: 'admin', 
-    component: AdminPageComponent 
+    loadChildren: () => import('./modules/admin-block/admin.module').then(m => m.AdminModule)
   },
   { 
     path: 'user', 
     loadChildren: () => import('./modules/users/user.module').then(m => m.UserModule)
-  },
-  { 
-    path: 'books', 
-    loadChildren: () => import('./modules/books/book.module').then(m => m.BookModule)
   },
   { 
     path: '**', 

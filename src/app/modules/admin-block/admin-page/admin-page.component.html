@@ -1,4 +1,12 @@
-<div class="cards">
+<nav>
+    <ul>
+        <li><a routerLink="/admin/settings" routerLinkActive="active">Личный кабинет</a></li>
+        <li><a routerLink="/admin/books" routerLinkActive="active">Управление книгами</a></li>
+        <li><a routerLink="/admin/users" routerLinkActive="active">Управление пользователями</a></li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>
+<!-- <div class="cards">
     <div class="card">
         <h3> Пользователи</h3>
         <p>Управление пользователями системы</p>
@@ -7,4 +15,4 @@
         <h3>Книги</h3>
         <p>Каталог книг в библиотеке</p>
     </div>
-</div>
+</div> -->

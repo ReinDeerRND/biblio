@@ -10,6 +10,7 @@ import { HistoryItem } from '../models/history.model';
   providedIn: 'root',
 })
 export class ApiBookService {
+  
   getBooks(): Book[] {
     return BOOK_LIST;
   }
