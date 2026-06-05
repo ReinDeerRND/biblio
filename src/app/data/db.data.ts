@@ -1,4 +1,5 @@
-import { Book } from '../models/book.model';
+import { ActiveBook, Book } from '../models/book.model';
+import { HistoryItem, HistoryTypeEvent } from '../models/history.model';
 import { User } from '../models/user.model';
 
 export const USER_LIST: User[] = [
@@ -188,4 +189,54 @@ export const BOOK_LIST: Book[] = [
     taken: false,
     comment: 'Магический реализм',
   },
+];
+
+export const HISTORY_LIST: HistoryItem[] = [
+  {
+    user_id: 'usr_001',
+    book_id: 'bk_002',
+    type: HistoryTypeEvent.taken,
+    date: new Date(2026, 1, 15),
+    expired_date: new Date(2026, 2, 15),
+  },
+  {
+    user_id: 'usr_001',
+    book_id: 'bk_002',
+    type: HistoryTypeEvent.returned,
+    date: new Date(2026, 2, 10),
+  },
+  {
+    user_id: 'usr_002',
+    book_id: 'bk_003',
+    type: HistoryTypeEvent.taken,
+    date: new Date(2026, 1, 15),
+    expired_date: new Date(2026, 2, 15),
+  },
+  {
+    user_id: 'usr_002',
+    book_id: 'bk_003',
+    type: HistoryTypeEvent.prolongated,
+    date: new Date(2026, 2, 15),
+    expired_date: new Date(2026, 3, 15),
+  },
+  {
+    user_id: 'usr_002',
+    book_id: 'bk_003',
+    type: HistoryTypeEvent.returned,
+    date: new Date(2026, 2, 15),
+    expired_date: new Date(2026, 3, 3),
+  },
+  {
+    user_id: 'usr_001',
+    book_id: 'bk_004',
+    type: HistoryTypeEvent.taken,
+    date: new Date(2026, 5, 7),
+    expired_date: new Date(2026, 6, 7),
+  },
+];
+
+export const ACTIVE_AUTH = new Map<string, string>();
+
+export const ACTIVE_BOOKS: ActiveBook[] = [
+  { book_id: 'bk_004', user_id: 'usr_001', expired_date: new Date(2026, 4, 7) },
 ];

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './modules/main-page/main-page/main-page.component';
 import { RegUserComponent } from './modules/main-page/reg-user/reg-user.component';
+import { AuthUserComponent } from './modules/main-page/auth-user/auth-user.component';
+import { AdminPageComponent } from './modules/admin-block/admin-page/admin-page.component';
 
 const routes: Routes = [
   { 
@@ -16,6 +18,14 @@ const routes: Routes = [
     { 
     path: 'register', 
     component: RegUserComponent 
+  },
+      { 
+    path: 'login', 
+    component: AuthUserComponent 
+  },
+       { 
+    path: 'admin', 
+    component: AdminPageComponent 
   },
   { 
     path: 'user', 

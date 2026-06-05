@@ -8,92 +8,122 @@
             <strong>Успешно!</strong> Регистрация завершена. Перенаправление на страницу входа...
         </div>
 
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!registrationSuccess">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="family_name">Фамилия <span class="required">*</span></label>
-                    <input type="text" id="family_name" formControlName="family_name" class="form-control"
-                   placeholder="Введите фамилию">
-                    <!-- <div *ngIf="submitted && f['family_name'].errors" class="invalid-feedback">
-                        <div *ngIf="f['family_name'].errors['required']">Фамилия обязательна для заполнения</div>
-                        <div *ngIf="f['family_name'].errors['minlength']">Фамилия должна содержать минимум 2 символа
-                        </div>
-                        <div *ngIf="['family_name'].errors['maxlength']">Фамилия не должна превышать 50 символов</div>
-                    </div> -->
-                </div>
+        <form nz-form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!registrationSuccess">
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzRequired>Фамилия</nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="firstnameErrorTip">
+                    <input nz-input formControlName="family_name" placeholder="Введите ваше фамилию" />
+                    <ng-template #firstnameErrorTip let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                            Пожалуйста, введите фамилию
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Имя должно содержать минимум 2 символа
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
 
-                <div class="form-group">
-                    <label for="name">Имя <span class="required">*</span></label>
-                    <input type="text" id="name" formControlName="name" class="form-control"
-                        placeholder="Введите имя">
-                    <!-- <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
-                        <div *ngIf="f['name'].errors['required']">Имя обязательно для заполнения</div>
-                        <div *ngIf="f['name'].errors['minlength']">Имя должно содержать минимум 2 символа</div>
-                        <div *ngIf="f['name'].errors['maxlength']">Имя не должно превышать 50 символов</div>
-                    </div> -->
-                </div>
-            </div>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzRequired>Имя</nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="nameErrorTip">
+                    <input nz-input formControlName="name" placeholder="Введите ваше имя" />
+                    <ng-template #nameErrorTip let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                            Пожалуйста, введите имя
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Имя должно содержать минимум 2 символа
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
 
-            <div class="form-group">
-                <label for="middle_name">Отчество</label>
-                <input type="text" id="middle_name" formControlName="middle_name" class="form-control"
-         
-                    placeholder="Введите отчество (необязательно)">
-                <!-- <div *ngIf="submitted && f['middle_name'].errors" class="invalid-feedback">
-                    <div *ngIf="f['middle_name'].errors['maxlength']">Отчество не должно превышать 50 символов</div>
-                </div> -->
-            </div>
 
-            <div class="form-group">
-                <label for="email">Email <span class="required">*</span></label>
-                <input type="email" id="email" formControlName="email" class="form-control"
-                    placeholder="example@mail.com">
-                <!-- <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                    <div *ngIf="f['email'].errors['required']">Email обязателен для заполнения</div>
-                    <div *ngIf="f['email'].errors['email']">Введите корректный email адрес</div>
-                    <div *ngIf="f['email'].errors['pattern']">Email должен быть в формате user@domain.com</div>
-                </div> -->
-            </div>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6">Отчество</nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="middlenameErrorTip">
+                    <input nz-input formControlName="middle_name" placeholder="Введите ваше отчество" />
+                    <ng-template #middlenameErrorTip let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                            Пожалуйста, введите отчество
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Имя должно содержать минимум 2 символа
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="password">Пароль <span class="required">*</span></label>
-                    <input type="password" id="password" formControlName="password" class="form-control"
-                        placeholder="Минимум 6 символов">
-                    <!-- <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                        <div *ngIf="f['password'].errors['required']">Пароль обязателен</div>
-                        <div *ngIf="f['password'].errors['minlength']">Пароль должен содержать минимум 6 символов</div>
-                        <div *ngIf="f['password'].errors['maxlength']">Пароль не должен превышать 30 символов</div>
-                    </div> -->
-                </div>
 
-                <div class="form-group">
-                    <label for="confirmPassword">Подтверждение пароля <span class="required">*</span></label>
-                    <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control"
-                       
-                        placeholder="Повторите пароль">
-                    <!-- <div *ngIf="submitted && (f['confirmPassword'].errors || registerForm.errors?.passwordMismatch)"
-                        class="invalid-feedback">
-                        <div *ngIf="f['confirmPassword'].errors?.['required']">Подтвердите пароль</div>
-                        <div *ngIf="registerForm.errors?.passwordMismatch">Пароли не совпадают</div>
-                    </div> -->
-                </div>
-            </div>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzRequired>Email</nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="emailErrorTip">
+                    <input nz-input formControlName="email" placeholder="example@mail.com" />
+                    <ng-template #emailErrorTip let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                            Пожалуйста, введите email
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('email')">
+                            Введите корректный email адрес
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
 
-            <div class="form-group checkbox">
-                <label>
-                    <input type="checkbox" formControlName="agreeTerms">
-                    <span>Я принимаю <a href="#" target="_blank">условия использования</a> и <a href="#"
-                            target="_blank">политику конфиденциальности</a> <span class="required">*</span></span>
-                </label>
-                <!-- <div *ngIf="submitted && f['agreeTerms'].errors" class="invalid-feedback">
-                    <div *ngIf="f['agreeTerms'].errors['requiredTrue']">Необходимо согласиться с условиями</div>
-                </div> -->
-            </div>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzRequired>Дата рождения</nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="'Пожалуйста, выберите дату рождения'">
+                    <nz-date-picker formControlName="birth_date" nzPlaceHolder="Выберите дату"
+                        style="width: 100%"></nz-date-picker>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzRequired>Пароль</nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="passErrorTip">
+                    <input nz-input formControlName="password" placeholder="Минимум 6 символов" />
+                    <ng-template #passErrorTip let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                            Пожалуйста, введите пароль
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Пароль должно содержать минимум 6 символа
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzRequired>Подтверждение </nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="passErrorTip">
+                    <input nz-input formControlName="confirmPassword" placeholder="Минимум 6 символов" />
+                    <ng-template #passErrorTip let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                            Пожалуйста, введите пароль
+                        </ng-container>
+                        <ng-container *ngIf="control.hasError('minlength')">
+                            Пароль должно содержать минимум 6 символа
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control [nzOffset]="6" [nzSpan]="18">
+                    <label nz-checkbox formControlName="agreeTerms">
+                        Я принимаю <a href="#" target="_blank">условия использования</a> и <a href="#"
+                            target="_blank">политику конфиденциальности</a>
+                    </label>
+
+                    <!-- Ошибка если не отмечено
+                    <nz-form-extra *ngIf="agree?.invalid && agree?.touched" style="color: #ff4d4f;">
+                        Необходимо подтвердить согласие
+                    </nz-form-extra> -->
+                </nz-form-control>
+            </nz-form-item>
 
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-                <button type="button" class="btn btn-secondary" (click)="onReset()">Очистить форму</button>
+                <button nz-button nzType="primary" (click)="onSubmit()">Зарегистрироваться</button>
+                <button nz-button nzType="default" (click)="onReset()">Очистить форму</button>
             </div>
 
             <div class="login-link">

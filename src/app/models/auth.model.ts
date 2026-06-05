@@ -7,3 +7,9 @@ export interface RegistrationFormData {
     confirmPassword: string;
     agreeTerms: boolean;
 }
+
+export interface AuthPassItem {
+    id: string;
+    pass: string;
+    deleted?: boolean;
+}
