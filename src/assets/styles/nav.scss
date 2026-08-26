@@ -1,6 +1,9 @@
 nav {
-    background-color: #333;
+    background-color: #667eea;
     padding: 1rem;
+    &.accent-page {
+        background-color: #764ba2;
+    }
 
     ul {
         display: flex;

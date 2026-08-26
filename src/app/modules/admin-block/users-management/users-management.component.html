@@ -1,1 +1,15 @@
-<p>users-management works!</p>
+
+<div class="wrapper">
+    <h2>Users</h2>
+    <div class="user-list">
+        <div class="user-item" *ngFor="let user of users" >
+            <span>{{user.family_name }} {{user.name}} {{user.middle_name}}</span>
+            <span>{{user.id}}</span>
+            <span>{{ user.birth_date | date: "MM-dd-YYYY"}}</span>
+            <span >{{ user.email}}</span>
+            <span>{{ user.reg_date | date: "MM-dd-YYYY"}}</span>
+            <span >{{ user.active? 'active': 'inactive'}}</span>
+            <span >delete</span>
+        </div>
+    </div>
+</div>

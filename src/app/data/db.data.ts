@@ -9,6 +9,8 @@ export const USER_LIST: User[] = [
     name: 'Лев',
     middle_name: 'Николаевич',
     reg_date: new Date(2024, 0, 15), // 15 января 2024
+    birth_date: new Date(1985, 0, 21),
+    email: 'l.tolstoy@ya.ru'
   },
   {
     id: 'usr_002',
@@ -16,6 +18,7 @@ export const USER_LIST: User[] = [
     name: 'Фёдор',
     middle_name: 'Михайлович',
     reg_date: new Date(2024, 0, 20),
+    birth_date: new Date(1983, 4, 25),
   },
   {
     id: 'usr_003',
@@ -30,6 +33,7 @@ export const USER_LIST: User[] = [
     name: 'Михаил',
     middle_name: 'Афанасьевич',
     reg_date: new Date(2024, 1, 10),
+    email: 'bul54@bk.ru'
   },
   {
     id: 'usr_005',
