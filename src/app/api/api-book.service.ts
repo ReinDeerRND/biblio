@@ -22,4 +22,8 @@ export class ApiBookService {
   getActiveUserBooks(id: string): ActiveBook[] {
     return ACTIVE_BOOKS.filter((i) => i.user_id === id);
   }
+
+  getBooksById(ids: string[]): Book[] {
+    return BOOK_LIST.filter(i=>ids.includes(i.id));
+  }
 }

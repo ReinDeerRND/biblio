@@ -20,6 +20,18 @@ export class ApiUserService {
     }
     return null;
   }
+
+  changeUserStatus(id: string, status: boolean): boolean {
+    let success = false;
+    USER_LIST.forEach(i=>{
+      if(i.id === id) {
+        success = true;
+        i.active = status;
+      }
+    })
+    return success;
+  }
+
 //auth
   getAuth(id: string): string | null {
     if(id){

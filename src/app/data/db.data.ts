@@ -10,7 +10,8 @@ export const USER_LIST: User[] = [
     middle_name: 'Николаевич',
     reg_date: new Date(2024, 0, 15), // 15 января 2024
     birth_date: new Date(1985, 0, 21),
-    email: 'l.tolstoy@ya.ru'
+    email: 'l.tolstoy@ya.ru',
+    active: true,
   },
   {
     id: 'usr_002',
@@ -19,6 +20,7 @@ export const USER_LIST: User[] = [
     middle_name: 'Михайлович',
     reg_date: new Date(2024, 0, 20),
     birth_date: new Date(1983, 4, 25),
+    active: true,
   },
   {
     id: 'usr_003',
@@ -26,6 +28,7 @@ export const USER_LIST: User[] = [
     name: 'Анна',
     middle_name: 'Павловна',
     reg_date: new Date(2024, 1, 5),
+    active: true,
   },
   {
     id: 'usr_004',
@@ -33,13 +36,15 @@ export const USER_LIST: User[] = [
     name: 'Михаил',
     middle_name: 'Афанасьевич',
     reg_date: new Date(2024, 1, 10),
-    email: 'bul54@bk.ru'
+    email: 'bul54@bk.ru',
+    active: true,
   },
   {
     id: 'usr_005',
     family_name: 'Цветаева',
     name: 'Марина',
     reg_date: new Date(2024, 1, 18),
+    active: true,
   },
   {
     id: 'usr_006',
@@ -75,6 +80,7 @@ export const USER_LIST: User[] = [
     name: 'Ирина',
     middle_name: 'Сергеевна',
     reg_date: new Date(2024, 3, 14),
+    active: true,
   },
   {
     id: 'usr_011',
@@ -201,7 +207,7 @@ export const HISTORY_LIST: HistoryItem[] = [
     book_id: 'bk_002',
     type: HistoryTypeEvent.taken,
     date: new Date(2026, 1, 15),
-    expired_date: new Date(2026, 2, 15),
+    expired_date: new Date(2027, 10, 15),
   },
   {
     user_id: 'usr_001',
@@ -214,14 +220,14 @@ export const HISTORY_LIST: HistoryItem[] = [
     book_id: 'bk_003',
     type: HistoryTypeEvent.taken,
     date: new Date(2026, 1, 15),
-    expired_date: new Date(2026, 2, 15),
+    expired_date: new Date(2026, 10, 15),
   },
   {
     user_id: 'usr_002',
     book_id: 'bk_003',
     type: HistoryTypeEvent.prolongated,
     date: new Date(2026, 2, 15),
-    expired_date: new Date(2026, 3, 15),
+    expired_date: new Date(2027, 3, 15),
   },
   {
     user_id: 'usr_002',

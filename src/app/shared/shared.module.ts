@@ -9,6 +9,15 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { BooksComponent } from './components/books/books.component';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+
+
+const antDesignIcons = AllIcons as {
+  [key: string]: any;
+};
+const icons = Object.keys(antDesignIcons).map(key => antDesignIcons[key]);
 
 const modules = [
   CommonModule,
@@ -21,13 +30,14 @@ const modules = [
   NzSelectModule,
   NzDatePickerModule,
   NzCheckboxModule,
+  NzToolTipModule,
 ];
 
 const components = [BooksComponent];
 
 @NgModule({
-  imports: [...modules],
-  exports: [...modules, ...components],
+  imports: [...modules, NzIconModule.forRoot(icons),],
+  exports: [...modules, ...components, NzIconModule],
   declarations: [...components],
 })
 export class SharedModule {}

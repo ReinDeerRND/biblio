@@ -14,8 +14,15 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { ru_RU } from 'ng-zorro-antd/i18n';
 import ru from '@angular/common/locales/ru';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserBooksComponent } from './modules/modals/user-books/user-books.component';
+import { ModalContentComponent } from './shared/components/modal-content/modal-content.component';
+
 
 registerLocaleData(ru);
+
+const modals = [
+  UserBooksComponent,
+]
 
 @NgModule({
   declarations: [
@@ -25,6 +32,9 @@ registerLocaleData(ru);
     AuthUserComponent,
     AuthAdminComponent,
     RegUserComponent,
+    UserBooksComponent,
+    ModalContentComponent,
+    ...modals
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, SharedModule, BrowserAnimationsModule ],
     providers: [

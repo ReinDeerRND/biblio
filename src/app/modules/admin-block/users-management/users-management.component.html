@@ -1,15 +1,21 @@
-
 <div class="wrapper">
     <h2>Users</h2>
     <div class="user-list">
-        <div class="user-item" *ngFor="let user of users" >
-            <span>{{user.family_name }} {{user.name}} {{user.middle_name}}</span>
-            <span>{{user.id}}</span>
-            <span>{{ user.birth_date | date: "MM-dd-YYYY"}}</span>
-            <span >{{ user.email}}</span>
-            <span>{{ user.reg_date | date: "MM-dd-YYYY"}}</span>
-            <span >{{ user.active? 'active': 'inactive'}}</span>
-            <span >delete</span>
-        </div>
+        <ng-container *ngFor="let user of users">
+            <div class="user-item" [class.semi-opacity]="!user.active">
+                <span>{{user.family_name }} {{user.name}} {{user.middle_name}}</span>
+                <span>
+                    <span (click)="getBookInfo(user)" nz-icon nzType="folder" nzTheme="outline" nz-tooltip nzTooltipTitle="Просмотр книг читателя"></span>
+                </span>
+                <span>{{user.id}}</span>
+                <span>{{ user.birth_date | date: "MM-dd-YYYY"}}</span>
+                <span>{{ user.email}}</span>
+                <span>{{ user.reg_date | date: "MM-dd-YYYY"}} </span>
+                <span (click)="toggleStatus(user)">{{ user.active? 'active': 'inactive'}}
+                    <span class="icon-block" nz-icon nzType="edit" nzTheme="outline"></span>
+                </span>
+                <span class="icon-block" nz-icon nzType="delete" nzTheme="outline"></span>
+            </div>
+        </ng-container>
     </div>
 </div>
