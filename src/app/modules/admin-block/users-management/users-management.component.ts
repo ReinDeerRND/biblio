@@ -7,7 +7,7 @@ import { ModalService } from 'src/app/shared/services/modal.service';
 @Component({
   selector: 'app-users-management',
   templateUrl: './users-management.component.html',
-  styleUrls: ['./users-management.component.scss'],
+  styleUrls: ['../admin.style.scss', './users-management.component.scss'],
 })
 export class UsersManagementComponent implements OnInit {
   users: User[] = [];

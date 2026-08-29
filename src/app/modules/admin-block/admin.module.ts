@@ -23,7 +23,7 @@ const routes: Routes = [
         path: 'books',
         component: BooksManagementComponent,
       },
-      { path: '', redirectTo: 'settings', pathMatch: 'full' },
+      { path: '', redirectTo: 'books', pathMatch: 'full' },
     ],
   },
 ];

@@ -1,3 +1,32 @@
 <div class="wrapper">
-    <app-books title="Библиотечный католог книг"></app-books>
+    
+     <h2>Книги</h2>
+    
+    <div class="table-list">
+        <ng-container *ngFor="let book of activeBooks">
+            <div class="table-row-item" >
+                <div>
+                      <span>{{book.book.title }} {{book.book.author }} </span> 
+                      <div class="sub-list" *ngFor="let item of book.history">
+                        <div class="sub-list-row">
+                            <span>{{item.user_id}}</span>
+                        </div>
+                      </div>
+                </div>
+             
+                <!-- <span>
+                    <span (click)="getBookInfo(user)" nz-icon nzType="folder" nzTheme="outline" nz-tooltip nzTooltipTitle="Просмотр книг читателя"></span>
+                </span>
+                <span>{{user.id}}</span>
+                <span>{{ user.birth_date | date: "MM-dd-YYYY"}}</span>
+                <span>{{ user.email}}</span>
+                <span>{{ user.reg_date | date: "MM-dd-YYYY"}} </span>
+                <span (click)="toggleStatus(user)">{{ user.active? 'active': 'inactive'}}
+                    <span class="icon-block" nz-icon nzType="edit" nzTheme="outline"></span>
+                </span>
+                <span class="icon-block" nz-icon nzType="delete" nzTheme="outline"></span> -->
+            </div>
+        </ng-container>
+    </div> 
 </div>
+

@@ -1,3 +1,5 @@
+import { HistoryItem } from "./history.model";
+
 export interface Book {
   id: string;
   title: string;
@@ -23,4 +25,9 @@ export interface ActiveBook {
 export interface BookStatus extends Book {
   user_id: string;
   expired_date: Date;
+}
+
+export interface BookStatusWithHistory {
+  book: Book,
+  history: HistoryItem[]
 }

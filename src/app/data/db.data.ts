@@ -243,10 +243,43 @@ export const HISTORY_LIST: HistoryItem[] = [
     date: new Date(2026, 5, 7),
     expired_date: new Date(2026, 6, 7),
   },
+  {
+    user_id: 'usr_002',
+    book_id: 'bk_005',
+    type: HistoryTypeEvent.taken,
+    date: new Date(2026, 5, 7),
+    expired_date: new Date(2027, 6, 7),
+  },
 ];
 
 export const ACTIVE_AUTH = new Map<string, string>();
 
-export const ACTIVE_BOOKS: ActiveBook[] = [
-  { book_id: 'bk_004', user_id: 'usr_001', expired_date: new Date(2026, 4, 7) },
-];
+export function getHistory(type: 'book_id'|'user_id'): Map<string, HistoryItem[]> {
+  let history = new Map<string, HistoryItem[]>();
+  HISTORY_LIST.forEach((item) => {
+    let items = history.get(item[type]);
+    if (!items?.length) {
+      history.set(item[type], [item]);
+    } else {
+      history.set(item[type], [...items, item]);
+    }
+  });
+  return history;
+}
+
+export function getActiveBooks() {
+  let history = getHistory('book_id');
+  let activeBooks = new Map<string, HistoryItem[]>();
+  history.forEach((items, book) => {
+    let isActive = true;
+    items.forEach((item) => {
+      if (item.type === HistoryTypeEvent.returned) {
+        isActive = false;
+      }
+    });
+    if (isActive) {
+      activeBooks.set(book, items);
+    }
+  });
+  return activeBooks;
+}

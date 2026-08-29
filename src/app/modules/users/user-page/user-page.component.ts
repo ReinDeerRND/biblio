@@ -32,7 +32,10 @@ export class UserPageComponent {
       this.userId && true
       //this.auth.checkAuth(this.userId, localStorage.getItem(this.userId) || '')
     ) {
-      this.activeBooks = this.exchange.getActiveBooksDescription(this.userId);
+      this.activeBooks = this.exchange.getActiveBooksDescriptionByUser(this.userId);
+      console.log('====================================');
+      console.log(this.activeBooks);
+      console.log('====================================');
     } else {
       this.router.navigate(['/']);
     }

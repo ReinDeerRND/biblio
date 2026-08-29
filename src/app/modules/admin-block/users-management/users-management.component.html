@@ -1,8 +1,8 @@
 <div class="wrapper">
-    <h2>Users</h2>
-    <div class="user-list">
+    <h2 class="table-title">Список читателей</h2>
+    <div class="table-list">
         <ng-container *ngFor="let user of users">
-            <div class="user-item" [class.semi-opacity]="!user.active">
+            <div class="table-row-item" [class.semi-opacity]="!user.active">
                 <span>{{user.family_name }} {{user.name}} {{user.middle_name}}</span>
                 <span>
                     <span (click)="getBookInfo(user)" nz-icon nzType="folder" nzTheme="outline" nz-tooltip nzTooltipTitle="Просмотр книг читателя"></span>
