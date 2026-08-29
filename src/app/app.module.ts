@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserPageComponent } from './modules/users/user-page/user-page.component';
 import { MainPageComponent } from './modules/main-page/main-page/main-page.component';
 import { AuthUserComponent } from './modules/main-page/auth-user/auth-user.component';
 import { AuthAdminComponent } from './modules/main-page/auth-admin/auth-admin.component';
@@ -27,7 +26,7 @@ const modals = [
 @NgModule({
   declarations: [
     AppComponent,
-    UserPageComponent,
+
     MainPageComponent,
     AuthUserComponent,
     AuthAdminComponent,

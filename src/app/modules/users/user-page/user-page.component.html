@@ -1,25 +1,10 @@
 
 <nav>
     <ul>
-        <li><a routerLink="/main" routerLinkActive="active">Главная</a></li>
-        <!-- <li><a routerLink="/user" routerLinkActive="active">Пользователи</a></li> -->
-        <li><a routerLink="/books" routerLinkActive="active"> Мои Книги</a></li>
+        <li><a (click)="changePage($event, types.Active)">Мои книги</a></li>
+        <li><a (click)="changePage($event, types.BookShelf)">Книжная полка</a></li>
+        <li><a routerLink="/main" routerLinkActive="active">Выйти</a></li>
     </ul>
 </nav>
-<div class="books-container">
-  <h2>Мои книги</h2>
-
-  <div class="book-grid">
-    <div class="book-card" *ngFor="let book of activeBooks">
-      <h3>{{ book.title }}</h3>
-      <p class="author">{{ book.author }}</p>
-      <p class="year" *ngIf="book.pub_year">Год: {{ book.pub_year }}</p>
-      <p class="comment" *ngIf="book.comment">{{ book.comment }}</p>
-      <p class="status">
-        Статус:
-        <span>
-          {{ +book.expired_date < currentDate ? 'Активна' : 'Задержана' }} </span>
-      </p>
-    </div>
-  </div>
-</div>
+<app-user-active-books *ngIf="userId && type === types.Active" [userId]="userId"></app-user-active-books>
+<app-user-shelf *ngIf="userId && type === types.BookShelf" [userId]="userId"></app-user-shelf>

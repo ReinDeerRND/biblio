@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiBookService } from 'src/app/api/api-book.service';
-import { getActiveBooks } from 'src/app/data/db.data';
 import { Book } from 'src/app/models/book.model';
 
 @Component({
@@ -17,15 +16,12 @@ export class UserBooksComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.data);
     this.getBooks();
-    getActiveBooks();
   }
 
   getBooks() {
 
     // let activeBooks = this.apiBook.getActiveUserBooks(this.data);
     console.log('====================================');
-    // console.log(activeBooks);
-    // console.log('====================================');
-    // this.books = this.apiBook.getBooksById(activeBooks.map((i) => i.book_id));
+
   }
 }

@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import {
   BOOK_LIST,
-  getActiveBooks,
-  getHistory,
   HISTORY_LIST,
 } from '../data/db.data';
 import { ActiveBook, Book } from '../models/book.model';
 import { HistoryItem, HistoryTypeEvent } from '../models/history.model';
+import { getHistory, getActiveBooks } from '../data/backend.mock';
 
 @Injectable({
   providedIn: 'root',
