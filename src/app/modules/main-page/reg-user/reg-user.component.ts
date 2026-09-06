@@ -7,7 +7,13 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegistrationFormData } from 'src/app/models/auth.model';
+import { ApiUserService } from 'src/app/api/api-user.service';
+import {
+  RagistrationUserData,
+  RegistrationFormData,
+} from 'src/app/models/auth.model';
+import { ModalNotificationType } from 'src/app/models/modal-view.model';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-reg-user',
@@ -16,12 +22,12 @@ import { RegistrationFormData } from 'src/app/models/auth.model';
 })
 export class RegUserComponent {
   registerForm: FormGroup;
-  submitted = false;
-  registrationSuccess = false;
 
   constructor(
     private formBuilder: FormBuilder,
+    private modal: ModalService,
     private router: Router,
+    private api: ApiUserService,
   ) {
     this.registerForm = this.formBuilder.group(
       {
@@ -53,6 +59,16 @@ export class RegUserComponent {
           ],
         ],
         birth_date: ['', [Validators.required]],
+        phone: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(/^[0-9+\-()\s]+$/),
+            Validators.minLength(10),
+            Validators.maxLength(16),
+          ],
+        ],
+        address: ['', [Validators.required]],
         password: [
           '',
           [
@@ -65,27 +81,32 @@ export class RegUserComponent {
         agreeTerms: [false, [Validators.requiredTrue]],
       },
       {
-        //validators: this.passwordMatchValidator
+        validators: this.passwordMatchValidator,
       },
     );
   }
 
-  // Валидатор для проверки совпадения паролей
-  // passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-  //   const password = control.get('password');
-  //   const confirmPassword = control.get('confirmPassword');
-
-  //   if (password && confirmPassword && password.value !== confirmPassword.value) {
-  //     return { passwordMismatch: true };
-  //   }
-  //   return null;
-  // }
+  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+    const password = control.get('password');
+    const confirmPassword = control.get('confirmPassword');
+    if (
+      password &&
+      confirmPassword &&
+      password.value !== confirmPassword.value
+    ) {
+      return { passwordMismatch: true };
+    }
+    return null;
+  }
 
   onSubmit() {
-    this.submitted = true;
-
-    // Останавливаем отправку, если форма не валидна
+      // Останавливаем отправку, если форма не валидна
     if (this.registerForm.invalid) {
+      this.modal.showNotification(
+        ModalNotificationType.Warning,
+        'Внимание',
+        'Не все поля формы заполнены',
+      );
       return;
     }
 
@@ -95,32 +116,26 @@ export class RegUserComponent {
     console.log('Регистрация пользователя:', formData);
 
     // Имитация сохранения в localStorage
-    const newUser = {
-      id: Date.now().toString(),
+    const newUser: RagistrationUserData = {
       family_name: formData.family_name,
       name: formData.name,
       middle_name: formData.middle_name || undefined,
       reg_date: new Date(),
       email: formData.email,
+      birth_date: formData.birth_date,
+      phone: formData.phone,
+      address: formData.address,
+      password: formData.password,
     };
-
-    // Получаем существующих пользователей
-    // let users = JSON.parse(localStorage.getItem('users') || '[]');
-    // users.push(newUser);
-    // localStorage.setItem('users', JSON.stringify(users));
-
-    // // Показываем сообщение об успехе
-    // this.registrationSuccess = true;
-
-    // // Через 2 секунды перенаправляем на страницу входа
-    // setTimeout(() => {
-    //   this.router.navigate(['/login']);
-    // }, 2000);
+   
+    let userId = this.api.registerUser(newUser);
+    this.modal.showNotification(ModalNotificationType.Success, 'Регистрация', 'Вы успешно зарегистрированы с номером !'+ userId );
+    setTimeout(() => {
+      this.router.navigate(['/login']);
+    }, 2000);
   }
 
   onReset() {
-    this.submitted = false;
     this.registerForm.reset();
-    this.registrationSuccess = false;
   }
 }

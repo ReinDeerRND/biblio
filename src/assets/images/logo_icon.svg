@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Фон -->
+  <rect width="64" height="64" rx="12" fill="#2c3e50"/>
+  
+  <!-- Книга мини -->
+  <rect x="14" y="16" width="36" height="36" rx="3" fill="#ecf0f1"/>
+  <rect x="14" y="16" width="36" height="36" rx="3" fill="none" stroke="#34495e" stroke-width="2"/>
+  
+  <!-- Страницы -->
+  <line x1="22" y1="25" x2="42" y2="25" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="22" y1="30" x2="42" y2="30" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="22" y1="35" x2="42" y2="35" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="22" y1="40" x2="42" y2="40" stroke="#bdc3c7" stroke-width="1.5"/>
+  
+  <!-- Корешок -->
+  <rect x="11" y="16" width="5" height="36" rx="1" fill="#e67e22"/>
+  
+  <!-- Буква B -->
+  <text x="32" y="53" font-family="Arial, sans-serif" font-size="12" font-weight="bold" 
+        fill="#ecf0f1" text-anchor="middle">B</text>
+</svg>

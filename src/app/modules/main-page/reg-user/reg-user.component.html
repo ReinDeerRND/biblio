@@ -3,12 +3,7 @@
     <div class="register-card">
         <h2>Регистрация нового пользователя</h2>
 
-        <!-- Сообщение об успехе -->
-        <div *ngIf="registrationSuccess" class="alert alert-success">
-            <strong>Успешно!</strong> Регистрация завершена. Перенаправление на страницу входа...
-        </div>
-
-        <form nz-form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!registrationSuccess">
+        <form nz-form [formGroup]="registerForm">
             <nz-form-item>
                 <nz-form-label [nzSpan]="6" nzRequired>Фамилия</nz-form-label>
                 <nz-form-control [nzSpan]="18" [nzErrorTip]="firstnameErrorTip">
@@ -55,7 +50,6 @@
                 </nz-form-control>
             </nz-form-item>
 
-
             <nz-form-item>
                 <nz-form-label [nzSpan]="6" nzRequired>Email</nz-form-label>
                 <nz-form-control [nzSpan]="18" [nzErrorTip]="emailErrorTip">
@@ -74,8 +68,32 @@
             <nz-form-item>
                 <nz-form-label [nzSpan]="6" nzRequired>Дата рождения</nz-form-label>
                 <nz-form-control [nzSpan]="18" [nzErrorTip]="'Пожалуйста, выберите дату рождения'">
-                    <nz-date-picker formControlName="birth_date" nzPlaceHolder="Выберите дату"
+                    <nz-date-picker formControlName="birth_date"
+                        nzPlaceHolder="Выберите дату или введите в формате YYYY-MM-DD"
                         style="width: 100%"></nz-date-picker>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzRequired>Телефон</nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="phoneErrorTip">
+                    <input nz-input formControlName="phone" placeholder="+7-900-000-00-00" />
+                    <ng-template #phoneErrorTip let-control>
+                        <ng-container *ngIf="control.hasError('required')">
+                            Пожалуйста, введите номер телефона
+                        </ng-container>
+                        <ng-container
+                            *ngIf="control.hasError('email') || control.hasError('max') || control.hasError('min') ">
+                            Введите корректный формат телефона
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+                <nz-form-label [nzSpan]="6" nzRequired>Адрес</nz-form-label>
+                <nz-form-control [nzSpan]="18" [nzErrorTip]="'Пожалуйста, введите адрес'">
+                    <input nz-input formControlName="address" placeholder="Введите домашний адрес" />
                 </nz-form-control>
             </nz-form-item>
 

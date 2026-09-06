@@ -1,6 +1,23 @@
 .main-container {
     padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+
+    .main-header {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 26px;
+        color: #0e3a72;
+    }
     .main-title {
-        text-align: center;
+        padding-left: 15px;
+
     }
 }

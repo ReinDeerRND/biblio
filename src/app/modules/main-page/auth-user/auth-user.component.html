@@ -8,9 +8,9 @@
             <strong>Успешно!</strong> Регистрация завершена. Перенаправление на страницу входа...
         </div>
 
-        <form nz-form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!registrationSuccess">
+        <form nz-form [formGroup]="form" *ngIf="!registrationSuccess">
             <nz-form-item>
-                <nz-form-label [nzSpan]="6">Номер читателя</nz-form-label>
+                <nz-form-label [nzSpan]="6">Номер читательского билета</nz-form-label>
                 <nz-form-control [nzSpan]="18" >
                     <input nz-input formControlName="id" placeholder="Введите свой номер" />
                 </nz-form-control>
@@ -45,14 +45,13 @@
                 </nz-form-control>
             </nz-form-item>
         
-
             <div class="form-actions">
-                <button nz-button nzType="primary" (click)="onSubmit()">Зарегистрироваться</button>
+                <button nz-button nzType="primary" (click)="onSubmit()">Авторизоваться</button>
                 <button nz-button nzType="default" (click)="onReset()">Очистить форму</button>
             </div>
 
             <div class="login-link">
-                Уже есть аккаунт? <a routerLink="/login">Войти</a>
+                Нет читательского билета? <a routerLink="/register">Регистрация нового читателя</a>
             </div>
         </form>
     </div>

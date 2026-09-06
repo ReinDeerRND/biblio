@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ModalContentComponent } from '../components/modal-content/modal-content.component';
-
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { ModalNotificationType } from 'src/app/models/modal-view.model';
 @Injectable({
   providedIn: 'root',
 })
 export class ModalService {
-  constructor(private modal: NzModalService) {}
+  constructor(
+    private modal: NzModalService,
+    private notification: NzNotificationService,
+  ) {}
 
-  showConfirm(): void {
-    this.modal.confirm({
-      nzTitle: 'Вы уверены, что хотите выполнить это действие?',
-      nzContent: 'Это действие нельзя будет отменить.',
-      nzOnOk: () => console.log('Действие подтверждено'),
-    });
+  showNotification(
+    type: ModalNotificationType,
+    title: string,
+    content: string,
+  ): void {
+    this.notification[type](
+      title,
+      content,
+      { nzDuration: 4000 }, // Автоматическое закрытие через 3 секунды
+    );
   }
 
   openModalComponent(title: string, type: string, data: any): void {
@@ -23,11 +31,5 @@ export class ModalService {
       nzData: { type, data },
       nzOnOk: () => console.log('OK clicked'),
     });
-
-    // Access the component instance
-    // const instance = modal.getContentComponent();
-    // if (instance) {
-    //   instance.subtitle = 'Updated subtitle after 2 seconds';
-    // }
   }
 }

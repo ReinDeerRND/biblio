@@ -12,7 +12,7 @@ import { BooksComponent } from './components/books/books.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 
 const antDesignIcons = AllIcons as {
   [key: string]: any;
@@ -31,6 +31,7 @@ const modules = [
   NzDatePickerModule,
   NzCheckboxModule,
   NzToolTipModule,
+  NzNotificationModule,
 ];
 
 const components = [BooksComponent];
