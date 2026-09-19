@@ -22,7 +22,7 @@ export const USER_LIST: User[] = [
     reg_date: new Date(2024, 0, 20),
     birth_date: new Date(1983, 4, 25),
     active: true,
-    address: 'Москва, Ленинский проспект 19, кв. 5'
+    address: 'Москва, Ленинский проспект 19, кв. 5',
   },
   {
     id: 'usr_003',
@@ -31,7 +31,7 @@ export const USER_LIST: User[] = [
     middle_name: 'Павловна',
     reg_date: new Date(2024, 1, 5),
     active: true,
-    address: 'Москва, ул. Тверская 21, кв. 2'
+    address: 'Москва, ул. Тверская 21, кв. 2',
   },
   {
     id: 'usr_004',
@@ -118,6 +118,18 @@ export const USER_LIST: User[] = [
     name: 'Александр',
     middle_name: 'Николаевич',
     reg_date: new Date(2024, 4, 28),
+  },
+  {
+    id: '5fe67d46-57ea-46ad-b34d-c8ac21616016',
+    family_name: 'Батькова',
+    name: 'Елена',
+    middle_name: 'Юрьевна',
+    reg_date: new Date(2026, 8, 19),
+    email: 'sl@mail.ru',
+    phone: '+7917549-10-90',
+    birth_date: new Date(1985, 3, 14),
+    address: '',
+    active: true,
   },
 ];
 
@@ -255,68 +267,68 @@ export const HISTORY_LIST: HistoryItem[] = [
   },
 ];
 
- export let _AUTH_PASS: AuthPassItem[] = [
-    {
-      id: 'usr_001',
-      pass: 'usr_001',
-    },
-    {
-      id: 'usr_002',
-      pass: 'usr_002',
-    },
-    {
-      id: 'usr_003',
-      pass: 'usr_003',
-    },
-    {
-      id: 'usr_004',
-      pass: 'usr_004',
-    },
-    {
-      id: 'usr_005',
-      pass: 'usr_005',
-    },
-    {
-      id: 'usr_006',
-      pass: 'usr_006',
-    },
-    {
-      id: 'usr_007',
-      pass: 'usr_007',
-    },
-    {
-      id: 'usr_008',
-      pass: 'usr_008',
-    },
-    {
-      id: 'usr_009',
-      pass: 'usr_009',
-    },
-    {
-      id: 'usr_010',
-      pass: 'usr_010',
-    },
-    {
-      id: 'usr_011',
-      pass: 'usr_011',
-    },
-    {
-      id: 'usr_012',
-      pass: 'usr_012',
-    },
-    {
-      id: 'usr_013',
-      pass: 'usr_013',
-    },
-    {
-      id: 'usr_014',
-      pass: 'usr_014',
-    },
-    {
-      id: 'usr_015',
-      pass: 'usr_015',
-    },
-  ];
+export let _AUTH_PASS: AuthPassItem[] = [
+  {
+    id: 'usr_001',
+    pass: 'usr_001',
+  },
+  {
+    id: 'usr_002',
+    pass: 'usr_002',
+  },
+  {
+    id: 'usr_003',
+    pass: 'usr_003',
+  },
+  {
+    id: 'usr_004',
+    pass: 'usr_004',
+  },
+  {
+    id: 'usr_005',
+    pass: 'usr_005',
+  },
+  {
+    id: 'usr_006',
+    pass: 'usr_006',
+  },
+  {
+    id: 'usr_007',
+    pass: 'usr_007',
+  },
+  {
+    id: 'usr_008',
+    pass: 'usr_008',
+  },
+  {
+    id: 'usr_009',
+    pass: 'usr_009',
+  },
+  {
+    id: 'usr_010',
+    pass: 'usr_010',
+  },
+  {
+    id: 'usr_011',
+    pass: 'usr_011',
+  },
+  {
+    id: 'usr_012',
+    pass: 'usr_012',
+  },
+  {
+    id: 'usr_013',
+    pass: 'usr_013',
+  },
+  {
+    id: 'usr_014',
+    pass: 'usr_014',
+  },
+  {
+    id: 'usr_015',
+    pass: 'usr_015',
+  },
+];
 
 export const USERS_AUTH = new Map<string, string>(
   USER_LIST.map((user) => [user.id, user.id]),

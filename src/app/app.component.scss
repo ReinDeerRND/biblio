@@ -1,5 +1,7 @@
+@import '/src/assets/styles/variables.scss';
+
 .main-container {
-    padding: 20px;
+    padding: $main-padding;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -10,14 +12,14 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        margin-bottom: 20px;
+        padding-bottom: 20px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         font-size: 26px;
         color: #0e3a72;
+        height: $header-height;
     }
     .main-title {
         padding-left: 15px;
-
     }
 }

@@ -1,10 +1,14 @@
-
 <nav>
     <ul>
         <li><a (click)="changePage($event, types.Active)">Мои книги</a></li>
         <li><a (click)="changePage($event, types.BookShelf)">Книжная полка</a></li>
         <li><a routerLink="/main" routerLinkActive="active">Выйти</a></li>
     </ul>
+    <span class="number">
+        Читательский билет № {{userId}}
+    </span>
 </nav>
-<app-user-active-books *ngIf="userId && type === types.Active" [userId]="userId"></app-user-active-books>
-<app-user-shelf *ngIf="userId && type === types.BookShelf" [userId]="userId"></app-user-shelf>
+<div class="page-scroll-container">
+    <app-user-active-books *ngIf="userId && type === types.Active" [userId]="userId"></app-user-active-books>
+    <app-user-shelf *ngIf="userId && type === types.BookShelf" [userId]="userId"></app-user-shelf>
+</div>

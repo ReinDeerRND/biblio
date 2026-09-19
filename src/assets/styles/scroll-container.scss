@@ -1,0 +1,6 @@
+@import '/src/assets/styles/variables.scss';
+
+.page-scroll-container {
+    height: calc(100vh - (2 * $main-padding + $nav-height + $header-height));
+    overflow-y: auto;
+}

@@ -129,9 +129,9 @@ export class RegUserComponent {
     };
    
     let userId = this.api.registerUser(newUser);
-    this.modal.showNotification(ModalNotificationType.Success, 'Регистрация', 'Вы успешно зарегистрированы с номером !'+ userId );
+    this.modal.showNotification(ModalNotificationType.Success, 'Регистрация', 'Вы успешно зарегистрированы!' );
     setTimeout(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/user', userId]);
     }, 2000);
   }
 

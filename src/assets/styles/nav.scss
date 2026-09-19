@@ -1,6 +1,11 @@
 nav {
     background-color: #667eea;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: $nav-height;
+    
     &.accent-page {
         background-color: #764ba2;
     }
@@ -27,5 +32,10 @@ nav {
                 border-radius: 4px;
             }
         }
+    }
+
+    .number {
+        font-weight: 700;
+        color: rgb(249, 235, 253);
     }
 }
